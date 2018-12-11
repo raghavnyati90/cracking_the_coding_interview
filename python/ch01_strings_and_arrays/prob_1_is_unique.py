@@ -38,12 +38,39 @@ def is_unique_with_data_structure(input_str: str) -> bool:
     return True
 
 
+def is_unique_with_bit_manipulation(input_str: str) -> bool:
+    """
+    To check if a string has all unique characters
+    :param input_str: input string
+    :return: True if string has all unique characters
+    """
+
+    if not input_str:
+        return False
+
+    letters: list = [False] * 256
+
+    for i in range(0, len(input_str)):
+        if letters[ord(input_str[i])]:
+            return False
+        letters[ord(input_str[i])] = True
+
+    return True
+
+
 if __name__ == '__main__':
     print(is_unique("1234321"))
     print(is_unique_with_data_structure("1234321"))
+    print(is_unique_with_data_structure("1234321"))
+
+    print(is_unique_with_bit_manipulation("11"))
+
     print(is_unique(""))
     print(is_unique_with_data_structure(""))
+    print(is_unique_with_bit_manipulation(""))
     print(is_unique("asdf"))
     print(is_unique_with_data_structure("asdf"))
+    print(is_unique_with_bit_manipulation("asdf"))
     print(is_unique("1"))
     print(is_unique_with_data_structure("1"))
+    print(is_unique_with_bit_manipulation("1"))
